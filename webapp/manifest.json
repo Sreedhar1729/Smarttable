@@ -1,0 +1,124 @@
+{
+    "_version": "1.65.0",
+    "sap.app": {
+        "id": "com.sap.smartcontrols",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.16.1",
+            "toolsId": "3bbaf742-66f6-4a97-8b39-f1623205ef8a"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/V2/Northwind/Northwind.svc/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.131.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "com.sap.smartcontrols.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {}
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "transition": "slide",
+                "type": "View",
+                "viewType": "XML",
+                "path": "com.sap.smartcontrols.view",
+                "async": true,
+                "viewPath": "com.sap.smartcontrols.view"
+            },
+            "routes": [
+                {
+                    "name": "RouteHome",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetHome"
+                    ]
+                },
+                {
+                    "name": "RouteDetail",
+                    "pattern": "RouteDetail/{CustomerID}",
+                    "target": [
+                        "TargetDetail"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetHome": {
+                    "id": "Home",
+                    "name": "Home"
+                },
+                "TargetDetail": {
+                    "id": "Detail",
+                    "name": "Detail"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "com.sap.smartcontrols.view.App",
+            "type": "XML",
+            "id": "App"
+        }
+    }
+}

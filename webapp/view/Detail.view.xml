@@ -1,0 +1,31 @@
+<mvc:View
+    controllerName="com.sap.smartcontrols.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:smartfield="sap.ui.comp.smartfield"
+    xmlns:smartform="sap.ui.comp.smartform"
+    xmlns="sap.m"
+>
+
+ <Page id="page2"  showNavButton="true" navButtonPress="onBack">
+         <content>
+         <smartform:SmartForm editTogglable="true" id="smartForm"  title="Customers Table">
+           <smartform:Group id="Group1">
+             <smartform:GroupElement id="GroupElement1">
+              <smartfield:SmartField id="smartfeild1" textLabel="CustomerID" value="{CustomerID}"></smartfield:SmartField> 
+             </smartform:GroupElement>
+              <smartform:GroupElement id="GroupElement2" >
+              <smartfield:SmartField id="smartfeild2" textLabel="CompanyName" value="{CompanyName}"></smartfield:SmartField> 
+              </smartform:GroupElement>
+              <smartform:GroupElement id="GroupElement3" >
+              <smartfield:SmartField id="smartfeild3" textLabel="ContactName" value="{ContactName}"></smartfield:SmartField> 
+             </smartform:GroupElement>
+              <smartform:GroupElement id="GroupElement4">
+              <smartfield:SmartField id="smartfeild4" textLabel="Address" value="{Address}"></smartfield:SmartField> 
+             </smartform:GroupElement>
+           </smartform:Group>
+         </smartform:SmartForm>
+         </content>
+        </Page>
+
+
+</mvc:View>

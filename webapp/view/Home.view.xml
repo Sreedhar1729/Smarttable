@@ -1,0 +1,64 @@
+<mvc:View
+    controllerName="com.sap.smartcontrols.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:smartfilterbar="sap.ui.comp.smartfilterbar"
+    xmlns:smarttable="sap.ui.comp.smarttable"
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <!-- Smart filter bar -->
+            <smartfilterbar:SmartFilterBar
+                id="idsmartfilter"
+                entitySet="Customers"
+            >
+                <!-- control configuration -->
+                <smartfilterbar:controlConfiguration>
+                    <smartfilterbar:ControlConfiguration
+                        id="idsmatConfig"
+                        key="CustomerID"
+                        visibleInAdvancedArea="true"
+                        label="CustomerID"
+                    />
+                      <smartfilterbar:ControlConfiguration
+                        id="idsmatConfig1"
+                        key="City"
+                        visibleInAdvancedArea="true"
+                        label="City"
+                    />
+                      <smartfilterbar:ControlConfiguration
+                        id="idsmatConfig2"
+                        key="CompanyName"
+                        visibleInAdvancedArea="true"
+                        label="CompanyName"
+                    />
+                      <smartfilterbar:ControlConfiguration
+                        id="idsmatConfig3"
+                        key="ContactName"
+                        visibleInAdvancedArea="true"
+                        label="ContactName"
+                    />
+                </smartfilterbar:controlConfiguration>
+            </smartfilterbar:SmartFilterBar>
+            <!-- smart table -->
+            <smarttable:SmartTable
+                id="smarttable"
+                smartFilterId="idsmartfilter"
+                entitySet="Customers"
+                enableAutoBinding="true"
+                enableAutoColumnWidth="true"
+                tableType="ResponsiveTable"
+                initiallyVisibleFields="CustomerID,CompanyName,ContactName,Address,City,PostalCode"
+            >
+                <Table
+                    id="idtable"
+                    selectionChange="onEmployeeTableChange"
+                    mode="SingleSelectMaster"
+                />
+            </smarttable:SmartTable>
+        </content>
+    </Page>
+</mvc:View>
